@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id='btn'>发送get请求</button>
+    <button id='btn2'>发送post请求</button>
+    <button id="btn0">发送get/post请求</button>
+    <button id="param">get带参数</button>
+    <button id="postparam">post带参数</button>
+    <script>
+        var sendget = $('#btn');
+        var sendpost = $('#btn2');
+        sendget.click(function () {
+            $.ajax({
+                url: "/a",
+                type: "get",
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+        });
+        sendpost.click(function () {
+            $.ajax({
+                url: "/a",
+                type: "post",
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+        });
+
+        btn0.onclick = function () {
+            $.ajax({
+                url: "/b",
+                type: "post",
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+
+        }
+        param.onclick = function () {
+            // console.log('aa')
+            var obj = {
+                aaa: 123,
+                msg: "asdf",
+            }
+            $.ajax({
+                url: "/c/" + JSON.stringify(obj),
+                type: "get",
+                data: {
+                    name: "aaa",
+                    age: 19,
+                },
+                success: function (data) {
+                    console.log(data)
+                }
+            })
+        }
+
+        postparam.onclick = function () {
+            $.ajax({
+                url: "/d",
+                type: 'post',
+                data: {
+                    name: "aaa",
+
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        }
+
+        var json = {
+            name: "Jack",
+            age: 30,
+            sex: 'male',
+        }
+
+    </script>
+</body>
+
+</html>
