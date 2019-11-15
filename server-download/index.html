@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+   <!-- <a href="/a">下载</a> -->
+   <button id="download">下载</button>
+    <a href="/a">下载a.txt</a>
+    <a href="/shipin">下载shipin</a>
+   <script>
+       var btnDownload = document.getElementById("download");
+       btnDownload.onclick = function(){
+           console.log("download button")
+            // ajax("http://localhost:3000/shipin");
+            // download("http://localhost:3000/shipin", "shipin.mkv");
+       }
+       
+       function ajax(url){
+           var xhr = new XMLHttpRequest();
+           xhr.open("post",url,true);
+           xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");//POST时需要传递            
+           xhr.addEventListener("progress",function(ev){
+               var percent = ev.loaded/ev.total
+               console.log(ev)
+               console.log(percent);
+           })
+           xhr.addEventListener("loadend",function(e){
+               console.log(e)
+               alert("下载完成");
+           });
+           xhr.addEventListener("loadstart",function(e){
+               console.log(e)
+               console.log("download start .............. ");
+           });
+           xhr.send();
+       }
+       function download(url, filename) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('post', url, true); 
+            xhr.responseType ="blob";
+            xhr.setRequestHeader("Content-type", "video/x-matroska");
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");//POST时需要传递            
+            xhr.responseType = "blob"; // 设置返回类型blob
+            // 定义请求完成的处理函数，请求前也可以增加 加载框/禁用下载按钮的相关逻辑
+            xhr.onload = function() {
+                if (this.status === 200) {
+                    var blob = this.response;
+                    
+                    // console.log(blob)
+                    var reader = new FileReader();
+                    // video/x-matroska
+                     reader.readAsDataURL(blob); // 转换为base64，可以直接放入a标签href
+                    // var dataURl = URL.createObjectURL(reader)
+                   
+                    // console.log(url,file)
+                    reader.onload = function(e) {
+                      
+                    //    window.open(window.location.href);
+                    }
+                }
+            };
+            xhr.send() //发送ajax请求
+        }
+  
+        </script>
+</body>
+
+</html>
