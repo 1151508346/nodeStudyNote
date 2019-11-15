@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>客户端使用模板引擎-art-templatejs</title>
+	<script src="./bower_components/art-template/lib/template-web.js"></script>
+</head>
+<body>
+		<div id="box"></div>
+	<script type="text/template" id="tem">
+
+			{{each obj}}
+			<li>{{$value}}</li>
+			{{/each}}
+			
+	
+	</script>
+	<script >
+		var temobj = template('tem',{
+			name :"Jack",
+			age:20,
+			sex:'female',
+			obj:['aaaa','cccc','llll']
+		});
+		
+		console.log(temobj);
+		box.innerHTML = temobj;
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<div class="one" id="one"></div>
+	<script>
+		// function Asynclock(url, callback) {
+		// 	var script = document.createElement('script');
+		// 	script.type = "text/javascript";
+
+		// 	if (script.readyState) {
+		// 		script.onreadystatechange = function () {
+		// 			callback && callback();
+		// 		}
+		// 	} else {
+		// 		script.onload = function () {
+		// 			callback && callback();
+		// 		}
+		// 	}
+		// 	script.src = url;
+		// 	document.body.appendChild(script);
+		// }
+		// var ele = Asynclock('./tools.js');
+// ------------------------------------------------
+
+		// var obj = {
+		// 	name: "Jack",
+		// 	skill: ['play', 'run', 'walk'],
+		// 	hobbies: ['singing', 'dancing', 'reading'],
+		// 	children: [
+		// 		{ name: "aaa", age: 20, sex: "famele" },
+		// 		{ name: "bbb", age: 20, sex: "famele" },
+		// 		{ name: "ccc", age: 20, sex: "famele" }
+		// 	]
+		// }
+		// var obj1 = {};
+
+		// var tar = obj;
+		// tar.children[0].name = "sss";
+		// console.log(tar.children[0].name, obj.children[0].name)
+
+		// function deepClone(Source, Target) {
+		// 	Target = Target || {};
+		// 	var str = Object.prototype.toString;
+		// 	var arrstr = "[object Array]";
+		// 	for (var key in Source) {
+
+				// 方法一
+				// if (typeof (Source[key]) == "object") {
+				// 	if (str.call(Source[key]) == arrstr) {
+				// 		Target[key] = [];
+				// 	} else {
+				// 		Target[key] = {};
+				// 	}
+				// 	deepClone(Source[key], Target[key]);
+				// } else {
+				// 	Target[key] = Source[key];
+				// }
+				// 方法二
+				// 		if (Source.hasOwnProperty(key)) {
+				// 			if (str.call(Source[key]) == "[object Array]") {
+				// 				Target[key] = [];
+				// 				console.log('ddd');
+				// 				deepClone(Source[key], Target[key]);
+				// 			} else if (str.call(Source[key]) == "[object Object]") {
+				// 				Target[key] = {};
+				// 				console.log('123');
+				// 				deepClone(Source[key], Target[key]);
+				// 			} else {
+				// 				Target[key] = Source[key];
+				// 			}
+				// 		}
+				// 	}
+				// 	return Target;
+
+		// }
+		// console.log(deepClone(obj, obj1));
+	</script>
+
+</body>
+
+</html>
