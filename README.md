@@ -1,2 +1,2 @@
-# nodeStudyNote
-node 平常学习练习笔记
+# sendEmail
+使用邮箱推送验证码
